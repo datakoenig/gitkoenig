@@ -1,0 +1,235 @@
+table 'Data OrderRows'
+	lineageTag: 40dd4cfb-2929-484a-9115-8caf37a07ad9
+
+	measure 'Order Sum' = SUM('Data OrderRows'[Net Price])
+		formatString: #,0
+		lineageTag: f752c1f8-249e-44a3-9f09-6c2a85d27db1
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Label Sum' = IF([Order Sum]>20000,"Summe: " & FORMAT([Order Sum],"#,0"),"...")
+		lineageTag: 7ce3cc12-a269-4efb-8244-400cb3311237
+
+	measure 'Order YTD' = CALCULATE([Order Sum],DATESYTD('Data Date'[Date]))
+		formatString: #,0
+		lineageTag: 1af6df09-8c18-4f46-a3f6-114ac4920973
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'PY Sum' = CALCULATE([Order Sum],SAMEPERIODLASTYEAR('Data Date'[Date]))
+		formatString: #,0
+		lineageTag: 0a24a97e-8a23-45c5-939b-700888adc81a
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure Anzahl = DISTINCTCOUNT('Data OrderRows'[OrderKey])
+		formatString: #,0
+		lineageTag: 43b2eeae-d6af-40f7-acf6-655586138a65
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Company Class Farbe' =
+			IF(
+			    [Order Sum]>8000 && [Anzahl]>7,
+			    "good"
+			    ,"maxColor"
+			)
+		lineageTag: bb6312e6-d0db-4948-a13f-ae21a50357ed
+
+	measure '△ BUD' = [PY Sum]-[Order Sum]
+		formatString: #,0
+		lineageTag: 3c3ef38c-0770-42a2-87c0-07a302f546c9
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure '% BUD' = DIVIDE([△ BUD],[Order Sum])
+		lineageTag: 14558603-d6ee-4bcd-ab2c-778325ce9592
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure refline =
+			
+			MAXX(
+			    VALUES('Data Customer'[Country]),
+			    MAX([Order Sum],[PY Sum])+ABS([△ BUD])*1.5
+			)
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 50f48e80-f749-42ca-910f-d32ff444f2c9
+
+		annotation PBI_FormatHint = {"currencyCulture":"de-DE"}
+
+	measure fb_min =
+			
+			IF(-1*[△ BUD]<0,[refline]-[△ BUD])
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 041adef6-5ced-4ab4-a0d5-e0db8573d005
+
+		annotation PBI_FormatHint = {"currencyCulture":"de-DE"}
+
+	measure fb_max =
+			
+			IF([△ BUD]<0,[refline]+[△ BUD])
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: c3fb2b55-77c0-4b06-9e47-5f7fde1a99ab
+
+		annotation PBI_FormatHint = {"currencyCulture":"de-DE"}
+
+	measure 'Delivery Sum' =
+			
+			CALCULATE(
+			    [Order Sum]
+			    ,USERELATIONSHIP('Data OrderRows'[Delivery Date],'Data Date'[Date])
+			)
+		formatString: #,0
+		lineageTag: bd201736-407f-406c-bebd-966e2034e1fd
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Delivery YTD' =
+			
+			CALCULATE(
+			    [Order YTD]
+			    ,USERELATIONSHIP('Data OrderRows'[Delivery Date],'Data Date'[Date])
+			)
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 6be83712-c3fd-4bb8-9ea4-b2f92e249b8c
+
+		annotation PBI_FormatHint = {"currencyCulture":"de-DE"}
+
+	column OrderKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f0bedcf-7990-4842-a095-526be8759c8e
+		summarizeBy: count
+		sourceColumn: OrderKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Line Number'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8986b7a6-c708-44da-b808-11cac5c965dd
+		summarizeBy: sum
+		sourceColumn: Line Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column ProductKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 1e431efe-c0a5-442e-8a11-a953d42bd1a8
+		summarizeBy: none
+		sourceColumn: ProductKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Quantity
+		dataType: int64
+		formatString: 0
+		lineageTag: 3bb5e953-5091-46dc-8ea6-e05c06123965
+		summarizeBy: sum
+		sourceColumn: Quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Unit Price'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: 8c1b6ece-fcfc-4240-ad0f-5c818b5adfcd
+		summarizeBy: sum
+		sourceColumn: Unit Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"de-DE"}
+
+	column 'Net Price'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: ff0f2b0a-2bd9-413e-942c-7c82598205c9
+		summarizeBy: sum
+		sourceColumn: Net Price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"de-DE"}
+
+	column 'Unit Cost'
+		dataType: decimal
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		lineageTag: ebe3f3ca-80d5-4578-a625-643a45d2f794
+		summarizeBy: sum
+		sourceColumn: Unit Cost
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"de-DE"}
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 8edb353d-2476-419e-bda4-06b42e8aaa90
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column StoreKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 99da747b-ace2-424e-aea4-b991fd2cb6d5
+		summarizeBy: none
+		sourceColumn: StoreKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Order Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: a29d7149-c737-4280-83b0-e06b51525f21
+		summarizeBy: none
+		sourceColumn: Order Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Delivery Date'
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 4a2cf47c-db60-4a18-900c-d532082d2538
+		summarizeBy: none
+		sourceColumn: Delivery Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Currency Code'
+		dataType: string
+		lineageTag: 8a16c37c-72ad-47ba-8a3a-c14083d0cee2
+		summarizeBy: none
+		sourceColumn: Currency Code
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Data OrderRows-b417fe0d-741e-41db-a1ec-0a82b52395c0' = m
+		mode: import
+		source =
+				let
+				    Quelle = Sql.Database("akdbserver.database.windows.net", "Contoso10K"),
+				    Data_OrderRows = Quelle{[Schema="Data",Item="OrderRows"]}[Data],
+				    #"Entfernte Spalten" = Table.RemoveColumns(Data_OrderRows,{"Data.Orders", "Data.Product"}),
+				    #"Zusammengeführte Abfragen" = Table.NestedJoin(#"Entfernte Spalten", {"OrderKey"}, #"Data Orders", {"OrderKey"}, "Data Orders", JoinKind.LeftOuter),
+				    #"Erweiterte Data Orders" = Table.ExpandTableColumn(#"Zusammengeführte Abfragen", "Data Orders", {"CustomerKey", "StoreKey", "Order Date", "Delivery Date", "Currency Code"}, {"CustomerKey", "StoreKey", "Order Date", "Delivery Date", "Currency Code"})
+				in
+				    #"Erweiterte Data Orders"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,50 @@
+table BudgetTage
+	lineageTag: a12b33b2-c422-4921-bb42-6c7d16b98574
+
+	column Kontonummer
+		dataType: int64
+		formatString: 0
+		lineageTag: 8b6547df-902f-489c-81dd-235fc1bdce15
+		summarizeBy: sum
+		sourceColumn: Kontonummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Budget
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a8da64a-9702-49fa-aac9-d22823a04a71
+		summarizeBy: sum
+		sourceColumn: Budget
+
+		annotation SummarizationSetBy = Automatic
+
+	column Wochentage
+		dataType: string
+		lineageTag: bf85555d-698c-4768-9b8b-4e7977190cce
+		summarizeBy: none
+		sourceColumn: Wochentage
+
+		annotation SummarizationSetBy = Automatic
+
+	column Datum
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d0ac11a4-3884-4819-83c1-27d2814b9167
+		summarizeBy: none
+		sourceColumn: Datum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition BudgetTage = m
+		mode: import
+		source =
+				let
+				    Quelle = Sql.Databases("6aiowjgnb6lu5iguqrukqsu6sa-6mi7yii457fuxbvj2h6z5byt5u.datawarehouse.fabric.microsoft.com"),
+				    LH_Hoteldaten = Quelle{[Name="LH_Hoteldaten"]}[Data],
+				    dbo_BudgetTage = LH_Hoteldaten{[Schema="dbo",Item="BudgetTage"]}[Data]
+				in
+				    dbo_BudgetTage
+

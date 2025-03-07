@@ -1,0 +1,30 @@
+model Model
+	culture: de-DE
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: de-DE
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["Data CurrencyExchange","Data Customer","Data Date","Data GeoLocations","Data OrderRows","Data Orders","Data Product","Data Store","fn_IsHoliday"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.140.7553.1 (Main)+9c07402ba6e34beacea11f7800c0088075b1cb37
+
+annotation PBI_ProTooling = ["CalcGroup","DaxQueryView_Desktop","WebModelingEdit"]
+
+ref table 'Data CurrencyExchange'
+ref table 'Data Customer'
+ref table 'Data Date'
+ref table 'Data GeoLocations'
+ref table 'Data OrderRows'
+ref table 'Data Product'
+ref table 'Data Store'
+ref table fn_IsHoliday
+ref table Berechnungsgruppe
+ref table Transaktion
+
+ref cultureInfo de-DE
+

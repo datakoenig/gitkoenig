@@ -1,0 +1,282 @@
+{
+  "config": "{\"version\":\"5.56\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY22SU11\",\"version\":\"5.42\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "pods": [
+    {
+      "boundSection": "f7763c993ba0383640d2",
+      "config": "{}",
+      "name": "Pod",
+      "parameters": "[{\"name\":\"Param_Filter6ab2a8b70b9d453a0b56\",\"boundFilter\":\"Filter6ab2a8b70b9d453a0b56\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Data Customer\"}},\"Property\":\"Country\"}}}]",
+      "type": 1
+    }
+  ],
+  "publicCustomVisuals": [
+    "InnofallsDeltaCharts",
+    "milestoneTrendAnalysisChart84A70462CF724538AA5043A4EED9B93F"
+  ],
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY22SU11",
+            "path": "BaseThemes/CY22SU11.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    },
+    {
+      "resourcePackage": {
+        "items": [
+          {
+            "name": "inforiverPremium2B7A5FD2992D434DAE0B149479307B7B.pbiviz.json",
+            "path": "inforiverPremium2B7A5FD2992D434DAE0B149479307B7B.pbiviz.json",
+            "type": 5
+          }
+        ],
+        "name": "inforiverPremium2B7A5FD2992D434DAE0B149479307B7B",
+        "type": 0
+      }
+    },
+    {
+      "resourcePackage": {
+        "items": [
+          {
+            "name": "WebInforiverCharts582F6C55AB6442EF8FA129089285CB47.pbiviz.json",
+            "path": "WebInforiverCharts582F6C55AB6442EF8FA129089285CB47.pbiviz.json",
+            "type": 5
+          }
+        ],
+        "name": "WebInforiverCharts582F6C55AB6442EF8FA129089285CB47",
+        "type": 0
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Linie",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter095991d9a3e32949a907\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Data Date\"}},\"Property\":\"Year\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Data Date\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"2020L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filterb59c472a6ba25292f0c3\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Data Date\"}},\"Property\":\"Month\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Data Date\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Month\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'January'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "4076cc44521a18026013",
+      "ordinal": 6,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"d5fa971d1016607e2ba0\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":103.50404312668464,\"z\":0,\"width\":1280,\"height\":616.711590296496,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Data Date.Date\",\"active\":true}],\"Y\":[{\"queryRef\":\"Data OrderRows.Total Sum\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Data Date\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"Data OrderRows\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"},\"Name\":\"Data Date.Date\",\"NativeReferenceName\":\"Date\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Order Sum\"},\"Name\":\"Data OrderRows.Total Sum\",\"NativeReferenceName\":\"Total Sum\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"leaderLines\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelDensity\":{\"expr\":{\"Literal\":{\"Value\":\"50L\"}}},\"minimumOffset\":{\"expr\":{\"Literal\":{\"Value\":\"32D\"}}}}}],\"lineStyles\":[{\"properties\":{\"lineChartType\":{\"expr\":{\"Literal\":{\"Value\":\"'smooth'\"}}},\"lineStyle\":{\"expr\":{\"Literal\":{\"Value\":\"'custom'\"}}},\"strokeAutoScale\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"strokeDashCap\":{\"expr\":{\"Literal\":{\"Value\":\"'square'\"}}},\"interpolationSmooth\":{\"expr\":{\"Literal\":{\"Value\":\"'monotoneX'\"}}},\"strokeDashArray\":{\"expr\":{\"Literal\":{\"Value\":\"'1 3 10 3'\"}}},\"strokeWidth\":{\"expr\":{\"Literal\":{\"Value\":\"10L\"}}},\"interpolationStep\":{\"expr\":{\"Literal\":{\"Value\":\"'center'\"}}},\"areaShow\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"areaMatchStrokeColor\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"areaColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":4,\"Percent\":0.6}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 616.71,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 103.50,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Balken",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter9a2898cca32a6aa6b49a\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Data Date\"}},\"Property\":\"Year\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Data Date\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"2019L\"}}],[{\"Literal\":{\"Value\":\"2018L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "ReportSection",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"065dee423894e23a9254\",\"layouts\":[{\"id\":0,\"position\":{\"x\":27.6010781671159,\"y\":30.18867924528302,\"z\":0,\"width\":528.733153638814,\"height\":352.7762803234501,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Data Customer.Continent\",\"active\":true}],\"Y\":[{\"queryRef\":\"Data OrderRows.Total Sum\"},{\"queryRef\":\"Data OrderRows.PY Sum\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d1\",\"Entity\":\"Data OrderRows\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Data Customer\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Continent\"},\"Name\":\"Data Customer.Continent\",\"NativeReferenceName\":\"Continent\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Order Sum\"},\"Name\":\"Data OrderRows.Total Sum\",\"NativeReferenceName\":\"Total Sum\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"PY Sum\"},\"Name\":\"Data OrderRows.PY Sum\",\"NativeReferenceName\":\"PY Sum\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Order Sum\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"layout\":[{\"properties\":{\"clusteredGapOverlaps\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"clusteredGapSize\":{\"expr\":{\"Literal\":{\"Value\":\"65D\"}}}}}],\"y1AxisReferenceLine\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"displayName\":{\"expr\":{\"Literal\":{\"Value\":\"'Bezugslinie 1'\"}}},\"value\":{\"expr\":{\"Literal\":{\"Value\":\"2000000D\"}}}},\"selector\":{\"id\":\"1\"}}],\"error\":[{\"properties\":{\"errorRange\":{\"kind\":\"ErrorRange\",\"explicit\":{\"isRelative\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"lowerBound\":{\"expr\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Data OrderRows\"}},\"Property\":\"Order Sum\"}}},\"upperBound\":{\"expr\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Data OrderRows\"}},\"Property\":\"PY Sum\"}}}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":0}}],\"metadata\":\"Data OrderRows.Total Sum\",\"highlightMatching\":1}},{\"properties\":{\"enabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"barColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":8,\"Percent\":0}}}}},\"barWidth\":{\"expr\":{\"Literal\":{\"Value\":\"10L\"}}}},\"selector\":{\"metadata\":\"Data OrderRows.Total Sum\"}}]}}}",
+          "filters": "[]",
+          "height": 352.78,
+          "width": 528.73,
+          "x": 27.60,
+          "y": 30.19,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"35ca6e6cab3972ea2b14\",\"layouts\":[{\"id\":0,\"position\":{\"x\":621.0242587601078,\"y\":61.239892183288404,\"z\":1000,\"width\":645.1752021563342,\"height\":261.3477088948787,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Rows\":[{\"queryRef\":\"Data Customer.Continent\",\"active\":true}],\"Values\":[{\"queryRef\":\"Data OrderRows.Total Sum\"},{\"queryRef\":\"Data OrderRows.PY Sum\"},{\"queryRef\":\"Data OrderRows.△ BUD\"},{\"queryRef\":\"Data OrderRows.% BUD\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d1\",\"Entity\":\"Data OrderRows\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Data Customer\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Continent\"},\"Name\":\"Data Customer.Continent\",\"NativeReferenceName\":\"Continent\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Order Sum\"},\"Name\":\"Data OrderRows.Total Sum\",\"NativeReferenceName\":\"Total Sum\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"PY Sum\"},\"Name\":\"Data OrderRows.PY Sum\",\"NativeReferenceName\":\"PY Sum\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"△ BUD\"},\"Name\":\"Data OrderRows.△ BUD\",\"NativeReferenceName\":\"△ BUD\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"% BUD\"},\"Name\":\"Data OrderRows.% BUD\",\"NativeReferenceName\":\"% BUD\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Order Sum\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"columnFormatting\":[{\"properties\":{\"dataBars\":{\"positiveColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#118DFF'\"}}}}},\"negativeColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#D64550'\"}}}}},\"axisColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#FFFFFF'\"}}}}},\"reverseDirection\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"hideText\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"totalMatchingOption\":{\"expr\":{\"Literal\":{\"Value\":\"1L\"}}}}},\"selector\":{\"metadata\":\"Data OrderRows.△ BUD\"}},{\"properties\":{\"dataBars\":{\"positiveColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'maxColor'\"}}}}},\"negativeColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#D64550'\"}}}}},\"axisColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'foreground'\"}}}}},\"reverseDirection\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"hideText\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"totalMatchingOption\":{\"expr\":{\"Literal\":{\"Value\":\"1L\"}}}}},\"selector\":{\"metadata\":\"Data OrderRows.% BUD\"}},{\"properties\":{\"dataBars\":{\"positiveColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'maxColor'\"}}}}},\"negativeColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'minColor'\"}}}}},\"axisColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'foreground'\"}}}}},\"reverseDirection\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"hideText\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"totalMatchingOption\":{\"expr\":{\"Literal\":{\"Value\":\"1L\"}}}}},\"selector\":{\"metadata\":\"Data OrderRows.Total Sum\"}}],\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"116.0696828111155D\"}}}},\"selector\":{\"metadata\":\"Data OrderRows.% BUD\"}}],\"subTotals\":[{\"properties\":{\"rowSubtotals\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'Minimal'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 261.35,
+          "width": 645.18,
+          "x": 621.02,
+          "y": 61.24,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Mix",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter095991d9a3e32949a907\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Data Date\"}},\"Property\":\"Year\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Data Date\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"2020L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filterb59c472a6ba25292f0c3\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Data Date\"}},\"Property\":\"Month\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Data Date\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Month\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'January'\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "ReportSection1ce726b52b4879cc88f5",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"8a95370618c6e75c8bc4\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":39.676549865229106,\"z\":1000,\"width\":450.2425876010781,\"height\":680.5390835579515,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Data OrderRows.Total Sum\"}],\"Category\":[{\"queryRef\":\"Data Customer.Country\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Data OrderRows\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"Data Customer\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Order Sum\"},\"Name\":\"Data OrderRows.Total Sum\",\"NativeReferenceName\":\"Total Sum\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Country\"},\"Name\":\"Data Customer.Country\",\"NativeReferenceName\":\"Country\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Order Sum\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 680.54,
+          "width": 450.24,
+          "x": 0.00,
+          "y": 39.68,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"a3e6d014dadc2e47fc51\",\"layouts\":[{\"id\":0,\"position\":{\"x\":486.46900269541777,\"y\":181.99460916442047,\"z\":0,\"width\":793.5309973045822,\"height\":538.22102425876,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Data Date.Date\",\"active\":true}],\"Y\":[{\"queryRef\":\"Data OrderRows.Total Sum\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Data Date\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"Data OrderRows\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"},\"Name\":\"Data Date.Date\",\"NativeReferenceName\":\"Date\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Order Sum\"},\"Name\":\"Data OrderRows.Total Sum\",\"NativeReferenceName\":\"Total Sum\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"leaderLines\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelDensity\":{\"expr\":{\"Literal\":{\"Value\":\"50L\"}}},\"minimumOffset\":{\"expr\":{\"Literal\":{\"Value\":\"32D\"}}}}}],\"lineStyles\":[{\"properties\":{\"lineChartType\":{\"expr\":{\"Literal\":{\"Value\":\"'smooth'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 538.22,
+          "width": 793.53,
+          "x": 486.47,
+          "y": 181.99,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Scatter",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection698af0b6e0eb00d2da43",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"e21778fb55b3345abc98\",\"layouts\":[{\"id\":0,\"position\":{\"x\":26.34146341463415,\"y\":50.73170731707317,\"z\":0,\"width\":743.4146341463415,\"height\":642.9268292682927,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"scatterChart\",\"projections\":{\"X\":[{\"queryRef\":\"Data OrderRows.Total Sum\",\"active\":true}],\"Y\":[{\"queryRef\":\"Data OrderRows.Anzahl\"}],\"Category\":[{\"queryRef\":\"Data Customer.Company\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Data OrderRows\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"Data Customer\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Order Sum\"},\"Name\":\"Data OrderRows.Total Sum\",\"NativeReferenceName\":\"Total Sum\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Anzahl\"},\"Name\":\"Data OrderRows.Anzahl\",\"NativeReferenceName\":\"Anzahl\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Company\"},\"Name\":\"Data Customer.Company\",\"NativeReferenceName\":\"Company\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Data OrderRows\"}},\"Property\":\"Company Class Farbe\"}}}}}},\"selector\":{\"data\":[{\"dataViewWildcard\":{\"matchingOption\":1}}]}}],\"xAxisReferenceLine\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"displayName\":{\"expr\":{\"Literal\":{\"Value\":\"'Bezugslinie für X-Achse 1'\"}}},\"value\":{\"expr\":{\"Literal\":{\"Value\":\"9000D\"}}}},\"selector\":{\"id\":\"1\"}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 642.93,
+          "width": 743.41,
+          "x": 26.34,
+          "y": 50.73,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Matrix",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSectionb40744d6e2db81a404e9",
+      "ordinal": 5,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"6f021784819b2d3eb05c\",\"layouts\":[{\"id\":0,\"position\":{\"x\":810.7816711590297,\"y\":86.2533692722372,\"z\":0,\"width\":436.4420485175202,\"height\":532.1832884097034,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"pivotTable\",\"projections\":{\"Rows\":[{\"queryRef\":\"Data Customer.Continent\",\"active\":true},{\"queryRef\":\"Data Customer.Country\",\"active\":true},{\"queryRef\":\"Data Customer.Company\"}],\"Values\":[{\"queryRef\":\"Data OrderRows.Total Sum\"},{\"queryRef\":\"Data OrderRows.PY Sum\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Data Customer\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"Data OrderRows\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Continent\"},\"Name\":\"Data Customer.Continent\",\"NativeReferenceName\":\"Continent\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Company\"},\"Name\":\"Data Customer.Company\",\"NativeReferenceName\":\"Company\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Order Sum\"},\"Name\":\"Data OrderRows.Total Sum\",\"NativeReferenceName\":\"Total Sum\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"PY Sum\"},\"Name\":\"Data OrderRows.PY Sum\",\"NativeReferenceName\":\"PY Sum\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Country\"},\"Name\":\"Data Customer.Country\",\"NativeReferenceName\":\"Country\"}]},\"expansionStates\":[{\"roles\":[\"Rows\"],\"levels\":[{\"queryRefs\":[\"Data Customer.Continent\"],\"identityKeys\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Data Customer\"}},\"Property\":\"Continent\"}}],\"isPinned\":true},{\"queryRefs\":[\"Data Customer.Country\"],\"isCollapsed\":true,\"identityKeys\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Data Customer\"}},\"Property\":\"Country\"}}],\"isPinned\":true},{\"queryRefs\":[\"Data Customer.Company\"],\"isCollapsed\":true,\"isPinned\":true}],\"root\":{\"identityValues\":null}}],\"drillFilterOtherVisuals\":true,\"objects\":{\"blankRows\":[{\"properties\":{\"showBlankRows\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"blankRowColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0.6}}}}}}}],\"general\":[{\"properties\":{\"layout\":{\"expr\":{\"Literal\":{\"Value\":\"'Tabular'\"}}}}}],\"rowHeaders\":[{\"properties\":{\"repeatRowHeaders\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"vcObjects\":{\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'Minimal'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 532.18,
+          "width": 436.44,
+          "x": 810.78,
+          "y": 86.25,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Multis",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter095991d9a3e32949a907\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Data Date\"}},\"Property\":\"Year\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filterb59c472a6ba25292f0c3\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Data Date\"}},\"Property\":\"Month\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "ReportSectione6c8943b730c1410401d",
+      "ordinal": 3,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"731cdd5c5d5a3003e005\",\"layouts\":[{\"id\":0,\"position\":{\"x\":140.90534979423867,\"y\":23.703703703703702,\"z\":0,\"width\":996.8724279835391,\"height\":697.9423868312757,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"columnChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Data OrderRows.Total Sum\"}],\"Rows\":[{\"queryRef\":\"Data Product.Category\"}],\"Category\":[{\"queryRef\":\"Data Date.Year\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d1\",\"Entity\":\"Data OrderRows\",\"Type\":0},{\"Name\":\"d2\",\"Entity\":\"Data Product\",\"Type\":0},{\"Name\":\"d\",\"Entity\":\"Data Date\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Order Sum\"},\"Name\":\"Data OrderRows.Total Sum\",\"NativeReferenceName\":\"Total Sum\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d2\"}},\"Property\":\"Category\"},\"Name\":\"Data Product.Category\",\"NativeReferenceName\":\"Category\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year\"},\"Name\":\"Data Date.Year\",\"NativeReferenceName\":\"Year\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelDensity\":{\"expr\":{\"Literal\":{\"Value\":\"50L\"}}}}}],\"categoryAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"gridlineShow\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"valueAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"gridlineShow\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 697.94,
+          "width": 996.87,
+          "x": 140.91,
+          "y": 23.70,
+          "z": 0.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "RolePlayingDim",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter095991d9a3e32949a907\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Data Date\"}},\"Property\":\"Year\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Data Date\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"2020L\"}}]]}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}},{\"name\":\"Filterb59c472a6ba25292f0c3\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Data Date\"}},\"Property\":\"Month\"}},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{}}]",
+      "height": 720.00,
+      "name": "f15c35a87ea520d473ac",
+      "ordinal": 7,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"1a4a5c20dbbf63bfd014\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1018.9054726368161,\"y\":0,\"z\":3000,\"width\":261.0945273631841,\"height\":99.16133617626156,\"tabOrder\":3000}}],\"singleVisual\":{\"visualType\":\"advancedSlicerVisual\",\"projections\":{\"Values\":[{\"queryRef\":\"Transaktion.Transaktion\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Transaktion\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Transaktion\"},\"Name\":\"Transaktion.Transaktion\",\"NativeReferenceName\":\"Transaktion\"}]},\"columnProperties\":{\"Data OrderRows.Delivery Sum\":{\"displayName\":\"Delivery Sum\"},\"Data OrderRows.Order Sum\":{\"displayName\":\"Order Sum\"}},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Transaktion\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Transaktion Felder\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'''Data OrderRows''[Order Sum]'\"}}],[{\"Literal\":{\"Value\":\"'''Data OrderRows''[Delivery Sum]'\"}}]]}}}]}}}}],\"layout\":[{\"properties\":{\"rowCount\":{\"expr\":{\"Literal\":{\"Value\":\"2L\"}}},\"columnCount\":{\"expr\":{\"Literal\":{\"Value\":\"2L\"}}}}}],\"padding\":[{\"properties\":{\"paddingSelection\":{\"expr\":{\"Literal\":{\"Value\":\"'Narrow'\"}}}},\"selector\":{\"id\":\"default\"}}],\"fillCustom\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"selection\":[{\"properties\":{\"singleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"cachedFilterDisplayItems\":[{\"id\":{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Transaktion\"}},\"Property\":\"Transaktion Felder\"}},\"Right\":{\"Literal\":{\"Value\":\"'''Data OrderRows''[Order Sum]'\"}}}}},\"displayName\":\"Order Sum\"},{\"id\":{\"scopeId\":{\"Comparison\":{\"ComparisonKind\":0,\"Left\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Transaktion\"}},\"Property\":\"Transaktion Felder\"}},\"Right\":{\"Literal\":{\"Value\":\"'''Data OrderRows''[Delivery Sum]'\"}}}}},\"displayName\":\"Delivery Sum\"}]}}",
+          "filters": "[]",
+          "height": 99.16,
+          "width": 261.09,
+          "x": 1018.91,
+          "y": 0.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"9108581c9d83f817f530\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10.007107320540158,\"y\":114.6268656716418,\"z\":0,\"width\":1269.99289267946,\"height\":315.678749111585,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Y\":[{\"queryRef\":\"Data OrderRows.Order Sum\"},{\"queryRef\":\"Data OrderRows.Delivery Sum\"}],\"Category\":[{\"queryRef\":\"Data Date.Date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Data Date\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"Data OrderRows\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"},\"Name\":\"Data Date.Date\",\"NativeReferenceName\":\"Date\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Order Sum\"},\"Name\":\"Data OrderRows.Order Sum\",\"NativeReferenceName\":\"Order Sum\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Delivery Sum\"},\"Name\":\"Data OrderRows.Delivery Sum\",\"NativeReferenceName\":\"Delivery Sum\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"}}}]},\"queryFieldParametersByRole\":{\"Y\":[{\"index\":0,\"length\":2,\"expr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Transaktion\"}},\"Property\":\"Transaktion\"}}}]},\"columnProperties\":{\"Data OrderRows.Order Sum\":{\"displayName\":\"Order Sum\"},\"Data OrderRows.Delivery Sum\":{\"displayName\":\"Delivery Sum\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"valueAxis\":[{\"properties\":{\"showAxisTitle\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"lineStyles\":[{\"properties\":{\"lineChartType\":{\"expr\":{\"Literal\":{\"Value\":\"'linear'\"}}}}},{\"properties\":{\"areaMatchStrokeColor\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"areaColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":8,\"Percent\":0}}}}}},\"selector\":{\"metadata\":\"Data OrderRows.Order Sum\"}},{\"properties\":{\"areaMatchStrokeColor\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"areaColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0}}}}}},\"selector\":{\"metadata\":\"Data OrderRows.Delivery Sum\"}}],\"layout\":[{\"properties\":{}}],\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":8,\"Percent\":0}}}}}},\"selector\":{\"metadata\":\"Data OrderRows.Order Sum\"}},{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0}}}}}},\"selector\":{\"metadata\":\"Data OrderRows.Delivery Sum\"}}]}}}",
+          "filters": "[]",
+          "height": 315.68,
+          "width": 1269.99,
+          "x": 10.01,
+          "y": 114.63,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"c4d6fe9fe1e96b7694e5\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":2000,\"width\":1012.6829268292684,\"height\":62.43902439024391,\"tabOrder\":2000}}],\"singleVisual\":{\"visualType\":\"advancedSlicerVisual\",\"projections\":{\"Values\":[{\"queryRef\":\"Data Date.Year Month Short\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Data Date\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Year Month Short\"},\"Name\":\"Data Date.Year Month Short\",\"NativeReferenceName\":\"Year Month Short\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"layout\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"2D\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 62.44,
+          "width": 1012.68,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"f645a6d49fa3eabe7e6f\",\"layouts\":[{\"id\":0,\"position\":{\"x\":10.007107320540158,\"y\":450.31982942430704,\"z\":1000,\"width\":598.6069651741294,\"height\":269.28216062544425,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Data OrderRows.OrderKey\"},{\"queryRef\":\"Data OrderRows.Order Date\"},{\"queryRef\":\"Data OrderRows.Delivery Date\"},{\"queryRef\":\"Data OrderRows.Total Sum\"},{\"queryRef\":\"Data OrderRows.Delivery Sum\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Data OrderRows\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"OrderKey\"},\"Name\":\"Data OrderRows.OrderKey\",\"NativeReferenceName\":\"OrderKey\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Order Date\"},\"Name\":\"Data OrderRows.Order Date\",\"NativeReferenceName\":\"Order Date\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Delivery Date\"},\"Name\":\"Data OrderRows.Delivery Date\",\"NativeReferenceName\":\"Delivery Date\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Order Sum\"},\"Name\":\"Data OrderRows.Total Sum\",\"NativeReferenceName\":\"Order Sum\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Delivery Sum\"},\"Name\":\"Data OrderRows.Delivery Sum\",\"NativeReferenceName\":\"Delivery Sum\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"columnWidth\":[{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"102.65316109515425D\"}}}},\"selector\":{\"metadata\":\"Data OrderRows.Order Date\"}},{\"properties\":{\"value\":{\"expr\":{\"Literal\":{\"Value\":\"86.28500216269502D\"}}}},\"selector\":{\"metadata\":\"Data OrderRows.Total Sum\"}}]},\"vcObjects\":{\"stylePreset\":[{\"properties\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'Minimal'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 269.28,
+          "width": 598.61,
+          "x": 10.01,
+          "y": 450.32,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{}",
+      "displayName": "Zeit",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filter6ab2a8b70b9d453a0b56\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Data Customer\"}},\"Property\":\"Country\"}},\"type\":\"Categorical\",\"howCreated\":5}]",
+      "height": 720.00,
+      "name": "f7763c993ba0383640d2",
+      "ordinal": 4,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"25e38b9ec1aec2de52ed\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":179.40700808625337,\"z\":0,\"width\":1280,\"height\":494.2318059299191,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Category\":[{\"queryRef\":\"Data Date.Date\",\"active\":true}],\"Y\":[{\"queryRef\":\"Data OrderRows.Total Sum\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"Data Date\",\"Type\":0},{\"Name\":\"d1\",\"Entity\":\"Data OrderRows\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"},\"Name\":\"Data Date.Date\",\"NativeReferenceName\":\"Date\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d1\"}},\"Property\":\"Order Sum\"},\"Name\":\"Data OrderRows.Total Sum\",\"NativeReferenceName\":\"Total Sum\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"Date\"}}}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelDensity\":{\"expr\":{\"Literal\":{\"Value\":\"50L\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 494.23,
+          "width": 1280.00,
+          "x": 0.00,
+          "y": 179.41,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"ceb30627440d04d65339\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"width\":100,\"height\":40,\"z\":1000,\"tabOrder\":1000}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'back'\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Back'\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 40.00,
+          "width": 100.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 1000.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

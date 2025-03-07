@@ -1,0 +1,98 @@
+table 'Data Store'
+	lineageTag: 819bbbc3-7f13-42b6-9d21-c2e22a5502cb
+
+	column StoreKey
+		dataType: int64
+		formatString: 0
+		lineageTag: afef5b2f-0bec-4857-ad13-28475f44804e
+		summarizeBy: none
+		sourceColumn: StoreKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Store Code'
+		dataType: int64
+		formatString: 0
+		lineageTag: 00c18b53-3f8e-43f3-90ff-f544899f5464
+		summarizeBy: none
+		sourceColumn: Store Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: eb1dd58f-7a76-47be-9fcd-5ed8c626364f
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: 3aa072c4-2afb-4acd-843e-bf479c446aa0
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column Name
+		dataType: string
+		lineageTag: 406740a7-2bdd-41f8-bdba-a6edb0c6181a
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Square Meters'
+		dataType: int64
+		formatString: 0
+		lineageTag: a1de7197-423e-4caf-9560-053ae0445d16
+		summarizeBy: none
+		sourceColumn: Square Meters
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Open Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d446c0ad-a531-4c1a-873b-909e4934f5c2
+		summarizeBy: none
+		sourceColumn: Open Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Close Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 37c004fa-3ca5-44b0-af38-34e334e2e92b
+		summarizeBy: none
+		sourceColumn: Close Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Status
+		dataType: string
+		lineageTag: 60273c85-0aa2-4fc2-bec0-0154486776ae
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Data Store-072eceba-4b7a-44ad-a09a-3acd14e2d86a' = m
+		mode: import
+		source =
+				let
+				    Quelle = Sql.Database("akdbserver.database.windows.net", "Contoso10K"),
+				    Data_Store = Quelle{[Schema="Data",Item="Store"]}[Data],
+				    #"Entfernte Spalten" = Table.RemoveColumns(Data_Store,{"Data.Orders"})
+				in
+				    #"Entfernte Spalten"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

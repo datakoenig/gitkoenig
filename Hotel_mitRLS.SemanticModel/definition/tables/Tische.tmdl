@@ -1,0 +1,32 @@
+table Tische
+	lineageTag: 2bb87ca7-9f20-4178-8c05-3b0dbfbc126c
+
+	column Tisch
+		dataType: int64
+		formatString: 0
+		lineageTag: bcc0cbd4-28b9-45fa-aef8-4fc2857272b9
+		summarizeBy: sum
+		sourceColumn: Tisch
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bereich
+		dataType: string
+		lineageTag: 7d40e138-7a2b-4dcd-9449-b05a50dc35f8
+		summarizeBy: none
+		sourceColumn: Bereich
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Tische = m
+		mode: import
+		source =
+				let
+				    Quelle = Sql.Databases("6aiowjgnb6lu5iguqrukqsu6sa-6mi7yii457fuxbvj2h6z5byt5u.datawarehouse.fabric.microsoft.com"),
+				    LH_Hoteldaten = Quelle{[Name="LH_Hoteldaten"]}[Data],
+				    dbo_Tische = LH_Hoteldaten{[Schema="dbo",Item="Tische"]}[Data]
+				in
+				    dbo_Tische
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,21 @@
+table Kellner
+	lineageTag: cb83dc58-3385-45a6-89ab-6953f311532b
+
+	column Kellner
+		dataType: string
+		lineageTag: f846bdb1-6b6f-4032-9dcc-7527408cc510
+		summarizeBy: none
+		sourceColumn: Kellner
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Kellner = m
+		mode: import
+		source =
+				let
+				    Quelle = Sql.Databases("6aiowjgnb6lu5iguqrukqsu6sa-6mi7yii457fuxbvj2h6z5byt5u.datawarehouse.fabric.microsoft.com"),
+				    LH_Hoteldaten = Quelle{[Name="LH_Hoteldaten"]}[Data],
+				    dbo_Kellner = LH_Hoteldaten{[Schema="dbo",Item="Kellner"]}[Data]
+				in
+				    dbo_Kellner
+

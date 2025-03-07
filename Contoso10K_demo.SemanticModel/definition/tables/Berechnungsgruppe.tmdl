@@ -1,0 +1,26 @@
+table Berechnungsgruppe
+	lineageTag: eb63840e-5d88-4a89-89a1-2c595a73e9d9
+
+	calculationGroup
+
+		calculationItem Standard = SELECTEDMEASURE()
+
+		calculationItem MTD = CALCULATE(SELECTEDMEASURE(),DATESMTD('Data Date'[Date]))
+
+	column 'Spalte der Berechnungsgruppe'
+		dataType: string
+		lineageTag: 9db32d35-ac0f-4d24-88cc-ed0e1d330e97
+		summarizeBy: none
+		sourceColumn: Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ordinalzahl
+		dataType: int64
+		formatString: 0
+		lineageTag: 3c5387bf-4580-4ea3-9a77-eb579cff76de
+		summarizeBy: sum
+		sourceColumn: Ordinal
+
+		annotation SummarizationSetBy = Automatic
+

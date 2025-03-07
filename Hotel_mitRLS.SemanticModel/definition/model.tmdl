@@ -1,0 +1,33 @@
+model Model
+	culture: de-DE
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: de-DE
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["BudgetTage","Gaesteanzahl","Hotel_Ist","Kassendaten","Kassendaten_Vorgang","Gliederung","Kellner","Kostenstellen","Rooms","Stunden","Tische","Produkte","goCalendar","Kalender"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation PBIDesktopVersion = 2.127.1080.0 (24.03)
+
+ref table BudgetTage
+ref table Gaesteanzahl
+ref table Hotel_Ist
+ref table Kassendaten
+ref table Kassendaten_Vorgang
+ref table Gliederung
+ref table Kellner
+ref table Kostenstellen
+ref table Rooms
+ref table Stunden
+ref table Tische
+ref table Produkte
+ref table Kalender
+
+ref role FB
+ref role all
+
+ref cultureInfo de-DE
+

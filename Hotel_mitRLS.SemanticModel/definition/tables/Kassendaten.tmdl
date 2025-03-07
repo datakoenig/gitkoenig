@@ -1,0 +1,146 @@
+table Kassendaten
+	lineageTag: 6bcca8c8-d4b3-45c7-b071-e41defa0012f
+
+	column Vorgang
+		dataType: int64
+		formatString: 0
+		lineageTag: bfce6201-dbbd-4424-b84c-a4e931a4aa27
+		summarizeBy: sum
+		sourceColumn: Vorgang
+
+		annotation SummarizationSetBy = Automatic
+
+	column Rechnungszeit
+		dataType: double
+		lineageTag: b1a21bc5-167f-49e7-9785-64f6c1e74c2a
+		summarizeBy: sum
+		sourceColumn: Rechnungszeit
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Menge
+		dataType: int64
+		formatString: 0
+		lineageTag: b3813932-624c-4cf3-9987-8a0931213a50
+		summarizeBy: sum
+		sourceColumn: Menge
+
+		annotation SummarizationSetBy = Automatic
+
+	column BedienerNr
+		dataType: int64
+		formatString: 0
+		lineageTag: abc930c4-748d-47bb-bf48-c1f29cd093e3
+		summarizeBy: sum
+		sourceColumn: BedienerNr
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kellner
+		dataType: string
+		lineageTag: 2cfa2bd0-d9f2-4590-842d-71eec8748795
+		summarizeBy: none
+		sourceColumn: Kellner
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tisch
+		dataType: int64
+		formatString: 0
+		lineageTag: 056679af-8aeb-466a-b71c-a76e8fc7087a
+		summarizeBy: sum
+		sourceColumn: Tisch
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bereich
+		dataType: string
+		lineageTag: 8db3b6b2-dca1-495f-ac9f-f0a573b99790
+		summarizeBy: none
+		sourceColumn: Bereich
+
+		annotation SummarizationSetBy = Automatic
+
+	column Artikelnummer
+		dataType: int64
+		formatString: 0
+		lineageTag: cee5bf86-4127-49c7-8a35-84ec3259893f
+		summarizeBy: sum
+		sourceColumn: Artikelnummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Einzelpreis
+		dataType: int64
+		formatString: 0
+		lineageTag: aa5bb169-c3e7-450d-aa46-008e9d704dfb
+		summarizeBy: sum
+		sourceColumn: Einzelpreis
+
+		annotation SummarizationSetBy = Automatic
+
+	column Summe
+		dataType: int64
+		formatString: 0
+		lineageTag: ad6a6b18-f208-4edd-90d7-7adc3510548c
+		summarizeBy: sum
+		sourceColumn: Summe
+
+		annotation SummarizationSetBy = Automatic
+
+	column Storno
+		dataType: string
+		lineageTag: 1454078d-b73e-4822-8362-d41ced97f2e5
+		summarizeBy: none
+		sourceColumn: Storno
+
+		annotation SummarizationSetBy = Automatic
+
+	column Stunde
+		dataType: int64
+		formatString: 0
+		lineageTag: 087b54bd-bd87-404c-855d-afa4a7511566
+		summarizeBy: sum
+		sourceColumn: Stunde
+
+		annotation SummarizationSetBy = Automatic
+
+	column Belegungsdauer
+		dataType: string
+		lineageTag: fb7d63bf-6bd2-46e6-92ef-89c185c9e514
+		summarizeBy: none
+		sourceColumn: Belegungsdauer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Öffnungstag
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: af67b20f-6bfb-4b18-ab89-cdf1aec02ec6
+		summarizeBy: none
+		sourceColumn: Öffnungstag
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Kostenstelle_man
+		dataType: string
+		lineageTag: b567c601-4d6c-4753-aa4b-eaebf2470417
+		summarizeBy: none
+		sourceColumn: Kostenstelle_man
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Kassendaten = m
+		mode: import
+		source =
+				let
+				    Quelle = Sql.Databases("6aiowjgnb6lu5iguqrukqsu6sa-6mi7yii457fuxbvj2h6z5byt5u.datawarehouse.fabric.microsoft.com"),
+				    LH_Hoteldaten = Quelle{[Name="LH_Hoteldaten"]}[Data],
+				    dbo_Kassendaten = LH_Hoteldaten{[Schema="dbo",Item="Kassendaten"]}[Data]
+				in
+				    dbo_Kassendaten
+

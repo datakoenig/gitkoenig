@@ -1,0 +1,165 @@
+table Hotel_Ist
+	lineageTag: 3f8e580b-fd74-405c-b07f-935b0f66e235
+
+	column Buchungsnummer
+		dataType: string
+		lineageTag: 6b657b84-0fcf-4b95-9c23-1d5ee4d025e7
+		summarizeBy: none
+		sourceColumn: Buchungsnummer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Datum
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3692365d-965d-44a3-a94b-ef5554de9bfd
+		summarizeBy: none
+		sourceColumn: Datum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Sachkonto
+		dataType: int64
+		formatString: 0
+		lineageTag: 21e81e25-baee-4796-be7d-81b18386c76b
+		summarizeBy: none
+		sourceColumn: Sachkonto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sachkontoname
+		dataType: string
+		lineageTag: b52f56ee-6179-4eea-9277-79ab67d45edb
+		summarizeBy: none
+		sourceColumn: Sachkontoname
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sachkontonummer-und-Name
+		dataType: string
+		lineageTag: 4741fbfe-b7d6-4375-ac4e-6de0f40a38c4
+		summarizeBy: none
+		sourceColumn: Sachkontonummer-und-Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Betrag
+		dataType: double
+		lineageTag: 2719f972-5010-4887-88d0-de7cbe9530fc
+		summarizeBy: sum
+		sourceColumn: Betrag
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Steuersatz
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a6e6e41-ad7e-4094-8873-c70bb0e4c517
+		summarizeBy: sum
+		sourceColumn: Steuersatz
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kostenstellen
+		dataType: int64
+		formatString: 0
+		lineageTag: f516f1a9-48b8-4932-b834-c5a4febfe3a7
+		summarizeBy: none
+		sourceColumn: Kostenstellen
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kostenstellen-und-Name
+		dataType: string
+		lineageTag: dac172a2-a695-4e17-b5fa-14bca022ce98
+		summarizeBy: none
+		sourceColumn: Kostenstellen-und-Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Berichtsebene1
+		dataType: string
+		lineageTag: 66782330-4e5b-486e-92d1-fb3418ba72c6
+		summarizeBy: none
+		sourceColumn: Berichtsebene1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Berichtsebene2
+		dataType: string
+		lineageTag: d8ca907d-c489-40b1-ab38-cc0103813bd9
+		summarizeBy: none
+		sourceColumn: Berichtsebene2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Berichtsebene3
+		dataType: string
+		lineageTag: d7071691-c0bc-41a6-8df0-6d3b45576454
+		summarizeBy: none
+		sourceColumn: Berichtsebene3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Berichtsebene4
+		dataType: string
+		lineageTag: a4a10f32-c8f2-4164-b65e-744c792d60f2
+		summarizeBy: none
+		sourceColumn: Berichtsebene4
+
+		annotation SummarizationSetBy = Automatic
+
+	column Berichtsebene5
+		dataType: string
+		lineageTag: 1a9fa454-e0e9-40e1-bc66-40f8d52f53e5
+		summarizeBy: none
+		sourceColumn: Berichtsebene5
+
+		annotation SummarizationSetBy = Automatic
+
+	column Berichtsebene6
+		dataType: string
+		lineageTag: 18f0763f-4ed8-459c-bed1-95f0e0b2024b
+		summarizeBy: none
+		sourceColumn: Berichtsebene6
+
+		annotation SummarizationSetBy = Automatic
+
+	column Berichtsebene7
+		dataType: string
+		lineageTag: d276d613-a5bd-4d59-8e31-983801ad7e7e
+		summarizeBy: none
+		sourceColumn: Berichtsebene7
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kostenstellen-Ebene1
+		dataType: string
+		lineageTag: 9dc32885-4f95-49b4-91b3-85d7b8305fe9
+		summarizeBy: none
+		sourceColumn: Kostenstellen-Ebene1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kostenstellen-Ebene2
+		dataType: string
+		lineageTag: d612ac65-c995-4d64-ad26-d016d9776771
+		summarizeBy: none
+		sourceColumn: Kostenstellen-Ebene2
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Hotel_Ist = m
+		mode: import
+		source =
+				let
+				    Quelle = Sql.Databases("6aiowjgnb6lu5iguqrukqsu6sa-6mi7yii457fuxbvj2h6z5byt5u.datawarehouse.fabric.microsoft.com"),
+				    LH_Hoteldaten = Quelle{[Name="LH_Hoteldaten"]}[Data],
+				    dbo_Hotel_Ist = LH_Hoteldaten{[Schema="dbo",Item="Hotel_Ist"]}[Data]
+				in
+				    dbo_Hotel_Ist
+

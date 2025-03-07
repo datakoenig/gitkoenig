@@ -1,0 +1,26 @@
+table fn_IsHoliday
+	lineageTag: c87aafb0-c818-45f5-b6f8-54b5f6a25280
+
+	column fn_IsHoliday
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 63f3bb80-a851-41cf-8b25-fa4cad44d219
+		summarizeBy: none
+		sourceColumn: fn_IsHoliday
+
+		annotation SummarizationSetBy = Automatic
+
+	partition fn_IsHoliday-327baaaa-15f6-49b4-b5c5-b04c64b0853d = m
+		mode: import
+		source =
+				let
+				    Quelle = Sql.Database("akdbserver.database.windows.net", "Contoso10K"),
+				    dbo_fn_IsHoliday = Quelle{[Schema="dbo",Item="fn_IsHoliday"]}[Data],
+				    #"Aufgerufene Funktiondbo_fn_IsHoliday1" = dbo_fn_IsHoliday(null)
+				in
+				    #"Aufgerufene Funktiondbo_fn_IsHoliday1"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Logical
+

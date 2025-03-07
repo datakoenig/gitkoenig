@@ -1,0 +1,69 @@
+{
+  "formatVersion": "202409",
+  "lastModified": null,
+  "editingSession": {
+    "computeEngineSettings": {},
+    "editingSessionMashup": {
+      "mashupName": "Dataflow 2",
+      "queryGroups": [],
+      "documentLocale": "en-US",
+      "queriesMetadata": {
+        "DF_load_01_Increment_Datenbasis": {
+          "queryId": "12db96b5-5b22-4774-9abf-f5cc15bbd0b6",
+          "queryName": "DF_load_01_Increment_Datenbasis",
+          "queryGroupId": null,
+          "entityName": null,
+          "lastKnownIsCalculatedEntity": null,
+          "lastKnownIsLinkedEntity": null,
+          "lastKnownIsParameter": null,
+          "isHidden": false,
+          "lastKnownResultTypeName": null,
+          "loadEnabled": false,
+          "fieldsMetadata": {},
+          "deleteExistingDataOnLoad": false,
+          "hostProperties": {},
+          "jsonOutputDestinations": "{\"Destinations\":[{\"UpdateMethod\":{\"Kind\":\"Replace\"},\"ColumnMappings\":{\"Kind\":\"Automatic\"},\"Destination\":{\"Kind\":\"Script\",\"Script\":\"let\\r\\n  Pattern = Lakehouse.Contents([CreateNavigationProperties = false]),\\r\\n  Navigation_1 = Pattern{[workspaceId = \\\"c46e5216-31ef-4136-97bd-0206be8da638\\\"]}[Data],\\r\\n  Navigation_2 = Navigation_1{[lakehouseId = \\\"b5fab3bf-ae88-4bcf-816e-a65cad7ccb13\\\"]}[Data],\\r\\n  TableNavigation = Navigation_2{[Id = \\\"Increment_Datenbasis\\\", ItemKind = \\\"Table\\\"]}?[Data]?\\r\\nin\\r\\n  TableNavigation\",\"IsNewTarget\":true}}]}",
+          "bindToDefaultOutputDestination": null,
+          "jsonIncrementalRefreshSettings": null
+        }
+      },
+      "connectionOverrides": [
+        {
+          "path": "PowerPlatformDataflows",
+          "kind": "PowerPlatformDataflows",
+          "provider": "DmtsFabric",
+          "connectionName": "{\"ClusterId\":\"34ae00a3-74c7-4ead-8f5b-c3daefbbdfa9\",\"DatasourceId\":\"00abcc40-325c-4ffb-b826-0510c5b40301\"}",
+          "credentialDetails": {},
+          "connectionParameters": {}
+        },
+        {
+          "path": "Lakehouse",
+          "kind": "Lakehouse",
+          "provider": "DmtsFabric",
+          "connectionName": "{\"ClusterId\":\"34ae00a3-74c7-4ead-8f5b-c3daefbbdfa9\",\"DatasourceId\":\"b1c32c85-6aa1-4b9f-80fb-6f009b926c1d\"}",
+          "credentialDetails": {},
+          "connectionParameters": {}
+        }
+      ],
+      "trustedConnections": [
+        {
+          "path": "Lakehouse",
+          "kind": "Lakehouse",
+          "provider": "DmtsFabric",
+          "connectionName": "{\"ClusterId\":\"34ae00a3-74c7-4ead-8f5b-c3daefbbdfa9\",\"DatasourceId\":\"b1c32c85-6aa1-4b9f-80fb-6f009b926c1d\"}",
+          "credentialDetails": {},
+          "connectionParameters": {}
+        }
+      ],
+      "useHostConnectionProvider": false,
+      "fastCombine": false,
+      "allowNativeQueries": true,
+      "skipAutomaticTypeAndHeaderDetection": false,
+      "hostProperties": {
+        "dataflowRefreshOutputFileFormat": "Parquet",
+        "enableDateTimeFieldsForStaging": "true",
+        "enablePublishWithoutLoadedQueries": "true"
+      }
+    }
+  }
+}

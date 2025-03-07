@@ -1,0 +1,196 @@
+table 'Data Customer'
+	lineageTag: dde50973-ae19-4a07-9211-dd8b22b399f4
+
+	measure '# customers' = COUNTROWS('Data Customer')
+		formatString: 0
+		lineageTag: 39f1d781-76a3-4db0-9aed-23e61741e658
+
+	column CustomerKey
+		dataType: int64
+		formatString: 0
+		lineageTag: df673b76-eb80-41eb-87ba-f04c21802a46
+		summarizeBy: none
+		sourceColumn: CustomerKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column Gender
+		dataType: string
+		lineageTag: 7d7fea1c-bb71-4889-9872-b6e0ae71682c
+		summarizeBy: none
+		sourceColumn: Gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column Title
+		dataType: string
+		lineageTag: cebbfbc8-87b4-4c19-9f06-19200b1b4c40
+		summarizeBy: none
+		sourceColumn: Title
+
+		annotation SummarizationSetBy = Automatic
+
+	column GivenName
+		dataType: string
+		lineageTag: d8978bcb-eb6b-454c-8fbf-8cd9c67fe25f
+		summarizeBy: none
+		sourceColumn: GivenName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MiddleInitial
+		dataType: string
+		lineageTag: 28f60a9d-d4d2-4113-b994-917614f13665
+		summarizeBy: none
+		sourceColumn: MiddleInitial
+
+		annotation SummarizationSetBy = Automatic
+
+	column Surname
+		dataType: string
+		lineageTag: 9f02643f-22fc-4fd0-af1c-3105f5ff6ae0
+		summarizeBy: none
+		sourceColumn: Surname
+
+		annotation SummarizationSetBy = Automatic
+
+	column StreetAddress
+		dataType: string
+		lineageTag: 1f65b3bf-3c45-4c4d-af6a-6d24ea0c3318
+		summarizeBy: none
+		sourceColumn: StreetAddress
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 32c2a1a8-12bf-47b6-ad19-252c15f06edf
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: bef88960-bb63-4380-96fd-dda759fef290
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateFull
+		dataType: string
+		lineageTag: 27425b2a-24e0-4e83-95e4-611e035eb786
+		summarizeBy: none
+		sourceColumn: StateFull
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZipCode
+		dataType: string
+		lineageTag: 5a707775-1cb4-4b84-b612-ccb410e9c47d
+		summarizeBy: none
+		sourceColumn: ZipCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 750b9472-0020-4ae3-bbeb-9fd71025c302
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryFull
+		dataType: string
+		lineageTag: 845fa18c-5aed-4fe9-9d99-f43b43fcdcf2
+		summarizeBy: none
+		sourceColumn: CountryFull
+
+		annotation SummarizationSetBy = Automatic
+
+	column Birthday
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: de5e96ff-7bc2-48fa-a154-34568661f879
+		summarizeBy: none
+		sourceColumn: Birthday
+
+		annotation SummarizationSetBy = Automatic
+
+	column Age
+		dataType: int64
+		formatString: 0
+		lineageTag: 09f8ff12-c128-44b9-b5f6-9df6057cc271
+		summarizeBy: none
+		sourceColumn: Age
+
+		annotation SummarizationSetBy = Automatic
+
+	column Occupation
+		dataType: string
+		lineageTag: fe166aa1-6941-452a-85d7-a03f06488372
+		summarizeBy: none
+		sourceColumn: Occupation
+
+		annotation SummarizationSetBy = Automatic
+
+	column Company
+		dataType: string
+		lineageTag: 125e6c8d-e94b-4133-8703-914643c89cdd
+		summarizeBy: none
+		sourceColumn: Company
+
+		annotation SummarizationSetBy = Automatic
+
+	column Vehicle
+		dataType: string
+		lineageTag: 36d7ed67-23cb-4e1f-b26c-c70c1a70b1b6
+		summarizeBy: none
+		sourceColumn: Vehicle
+
+		annotation SummarizationSetBy = Automatic
+
+	column Latitude
+		dataType: double
+		lineageTag: 568375bd-b85a-4e18-bfa9-e6157a024fe4
+		summarizeBy: none
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Longitude
+		dataType: double
+		lineageTag: 30ea4c51-8625-4984-a74b-831fa4cb9e08
+		summarizeBy: none
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Continent
+		dataType: string
+		lineageTag: 6a4d5dca-212c-45a0-9190-33fc275739a8
+		summarizeBy: none
+		sourceColumn: Continent
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Data Customer-755f3f25-b10d-45ed-aaeb-9e1249891af6' = m
+		mode: import
+		source =
+				let
+				    Quelle = Sql.Database("akdbserver.database.windows.net", "Contoso10K"),
+				    Data_Customer = Quelle{[Schema="Data",Item="Customer"]}[Data],
+				    #"Entfernte Spalten" = Table.RemoveColumns(Data_Customer,{"Data.Orders"})
+				in
+				    #"Entfernte Spalten"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

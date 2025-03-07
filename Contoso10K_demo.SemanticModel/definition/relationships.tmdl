@@ -1,0 +1,23 @@
+relationship 3cf7a07d-00d2-4270-adb9-3c11aa8b911f
+	fromColumn: 'Data OrderRows'.ProductKey
+	toColumn: 'Data Product'.ProductKey
+
+	annotation PBI_IsFromSource = FS
+
+relationship 9f6e0f69-d226-4d08-8e6b-04783d106311
+	fromColumn: 'Data OrderRows'.CustomerKey
+	toColumn: 'Data Customer'.CustomerKey
+
+relationship 18efd537-6cbf-4728-adca-58c70494d67f
+	fromColumn: 'Data OrderRows'.'Order Date'
+	toColumn: 'Data Date'.Date
+
+relationship d59bcb76-2fb2-4851-9ec4-bdc9c0ad1a69
+	fromColumn: 'Data OrderRows'.StoreKey
+	toColumn: 'Data Store'.StoreKey
+
+relationship ad73f574-60f1-f02f-c8e0-0e3b46bc1386
+	isActive: false
+	fromColumn: 'Data OrderRows'.'Delivery Date'
+	toColumn: 'Data Date'.Date
+

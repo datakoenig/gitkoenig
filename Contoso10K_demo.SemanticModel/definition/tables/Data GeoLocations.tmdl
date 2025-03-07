@@ -1,0 +1,66 @@
+table 'Data GeoLocations'
+	lineageTag: 7ba727a0-a89b-434e-8905-4cf2dfa0d540
+
+	column GeoLocationKey
+		dataType: int64
+		formatString: 0
+		lineageTag: c02c23ce-97a2-42e1-936d-20443afe0748
+		summarizeBy: count
+		sourceColumn: GeoLocationKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryCode
+		dataType: string
+		lineageTag: 630897d4-0e75-43f0-86ad-5c9fdff39afc
+		summarizeBy: none
+		sourceColumn: CountryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Country
+		dataType: string
+		lineageTag: 5e55549d-277c-45c6-87d2-7102f6544df4
+		summarizeBy: none
+		sourceColumn: Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column StateCode
+		dataType: string
+		lineageTag: 3b3923b9-0806-45e3-b8b2-9d2c2e9abc23
+		summarizeBy: none
+		sourceColumn: StateCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column State
+		dataType: string
+		lineageTag: fc07f16e-5e72-4a3d-9dbd-ac60ff3b63d4
+		summarizeBy: none
+		sourceColumn: State
+
+		annotation SummarizationSetBy = Automatic
+
+	column NumCustomers
+		dataType: int64
+		formatString: 0
+		lineageTag: ed4be881-78d7-4c2c-b579-bd3c88124d6b
+		summarizeBy: sum
+		sourceColumn: NumCustomers
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Data GeoLocations-4b40b415-ff5b-4210-bef9-fa97d27d1849' = m
+		mode: import
+		source =
+				let
+				    Quelle = Sql.Database("akdbserver.database.windows.net", "Contoso10K"),
+				    Data_GeoLocations = Quelle{[Schema="Data",Item="GeoLocations"]}[Data]
+				in
+				    Data_GeoLocations
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

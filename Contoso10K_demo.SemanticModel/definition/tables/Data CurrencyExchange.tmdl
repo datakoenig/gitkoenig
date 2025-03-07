@@ -1,0 +1,53 @@
+table 'Data CurrencyExchange'
+	lineageTag: c275a795-2da0-4f99-8d0e-4d01470d3b52
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5231ddb3-9b11-4c8f-83eb-99db3f65f37e
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column FromCurrency
+		dataType: string
+		lineageTag: 2257d734-ff26-4af6-8009-70ea8f149f26
+		summarizeBy: none
+		sourceColumn: FromCurrency
+
+		annotation SummarizationSetBy = Automatic
+
+	column ToCurrency
+		dataType: string
+		lineageTag: c7f0fbf2-a7ef-4c39-883e-f516a841bbf4
+		summarizeBy: none
+		sourceColumn: ToCurrency
+
+		annotation SummarizationSetBy = Automatic
+
+	column Exchange
+		dataType: double
+		lineageTag: 4dbdc88c-53b2-4258-944c-6c2794af5075
+		summarizeBy: sum
+		sourceColumn: Exchange
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Data CurrencyExchange-363360a5-e9d0-4754-a2d7-2e288f5b8125' = m
+		mode: import
+		source =
+				let
+				    Quelle = Sql.Database("akdbserver.database.windows.net", "Contoso10K"),
+				    Data_CurrencyExchange = Quelle{[Schema="Data",Item="CurrencyExchange"]}[Data]
+				in
+				    Data_CurrencyExchange
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

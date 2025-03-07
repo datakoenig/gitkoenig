@@ -1,0 +1,117 @@
+{
+  "config": "{\"version\":\"5.52\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU02\",\"version\":\"5.52\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}",
+  "layoutOptimization": 0,
+  "pods": [
+    {
+      "boundSection": "ReportSection12904a3d5cad0211ee20",
+      "config": "{}",
+      "name": "Pod",
+      "parameters": "[{\"name\":\"Param_Filtere0d900c5c077c98d9217\",\"boundFilter\":\"Filtere0d900c5c077c98d9217\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Kostenstellen\"}},\"Property\":\"Kostenstellen-Ebene2\"}}},{\"name\":\"Param_Filter1019e333d42092a0369e\",\"boundFilter\":\"Filter1019e333d42092a0369e\",\"fieldExpr\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Gliederung\"}},\"Property\":\"Berichtsebene1\"}}}]",
+      "type": 1
+    }
+  ],
+  "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "CY24SU02",
+            "path": "BaseThemes/CY24SU02.json",
+            "type": 202
+          }
+        ],
+        "name": "SharedResources",
+        "type": 2
+      }
+    }
+  ],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Seite 1",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720.00,
+      "name": "ReportSection",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"4c8803ff4eeb81370705\",\"layouts\":[{\"id\":0,\"position\":{\"x\":685.8964143426294,\"y\":38.24701195219123,\"z\":1,\"width\":152.98804780876492,\"height\":80.3187250996016}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'blank'\"}}}},\"selector\":{\"id\":\"default\"}}],\"text\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'DRILL'\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}},\"selector\":{\"id\":\"default\"}}],\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":2,\"Percent\":0.6}}}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Drillthrough'\"}}},\"drillthroughSection\":{\"expr\":{\"Literal\":{\"Value\":\"'ReportSection12904a3d5cad0211ee20'\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 80.32,
+          "width": 152.99,
+          "x": 685.90,
+          "y": 38.25,
+          "z": 1.00
+        },
+        {
+          "config": "{\"name\":\"5ed3f384b90352b0ba5b\",\"layouts\":[{\"id\":0,\"position\":{\"x\":671.8725099601593,\"y\":489.5617529880478,\"z\":2,\"width\":583.9043824701195,\"height\":230.75697211155378,\"tabOrder\":1}}],\"singleVisual\":{\"visualType\":\"treemap\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Hotel_Ist.Betrag)\"}],\"Group\":[{\"queryRef\":\"Kostenstellen.Kostenstellen-Ebene1\",\"active\":true}],\"Details\":[{\"queryRef\":\"Kostenstellen.Kostenstellen-Ebene2\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"h\",\"Entity\":\"Hotel_Ist\",\"Type\":0},{\"Name\":\"k\",\"Entity\":\"Kostenstellen\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"Betrag\"}},\"Function\":0},\"Name\":\"Sum(Hotel_Ist.Betrag)\",\"NativeReferenceName\":\"Summe von Betrag\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Kostenstellen-Ebene1\"},\"Name\":\"Kostenstellen.Kostenstellen-Ebene1\",\"NativeReferenceName\":\"Kostenstellen-Ebene1\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Kostenstellen-Ebene2\"},\"Name\":\"Kostenstellen.Kostenstellen-Ebene2\",\"NativeReferenceName\":\"Kostenstellen-Ebene2\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 230.76,
+          "width": 583.90,
+          "x": 671.87,
+          "y": 489.56,
+          "z": 2.00
+        },
+        {
+          "config": "{\"name\":\"b68abd0b0547db54b0d7\",\"layouts\":[{\"id\":0,\"position\":{\"x\":671.8725099601593,\"y\":266.45418326693226,\"z\":3,\"width\":583.9043824701195,\"height\":167.01195219123505,\"tabOrder\":2}}],\"singleVisual\":{\"visualType\":\"advancedSlicerVisual\",\"projections\":{\"Values\":[{\"queryRef\":\"Kostenstellen.Kostenstellen-Ebene1\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"Kostenstellen\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Kostenstellen-Ebene1\"},\"Name\":\"Kostenstellen.Kostenstellen-Ebene1\",\"NativeReferenceName\":\"Kostenstellen-Ebene1\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"label\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}},\"selector\":{\"id\":\"default\"}}],\"selection\":[{\"properties\":{\"singleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"strictSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"selectAllCheckboxEnabled\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"layout\":[{\"properties\":{\"rowCount\":{\"expr\":{\"Literal\":{\"Value\":\"4L\"}}},\"columnCount\":{\"expr\":{\"Literal\":{\"Value\":\"4L\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 167.01,
+          "width": 583.90,
+          "x": 671.87,
+          "y": 266.45,
+          "z": 3.00
+        },
+        {
+          "config": "{\"name\":\"d1a4fbe1786057869902\",\"layouts\":[{\"id\":0,\"position\":{\"x\":65.0199203187251,\"y\":79.04382470119522,\"z\":0,\"width\":574.9800796812749,\"height\":609.4023904382469,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Kostenstellen.Kostenstellen-Ebene1\"},{\"queryRef\":\"Kostenstellen.Kostenstellen-Ebene2\"},{\"queryRef\":\"Sum(Hotel_Ist.Betrag)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"k\",\"Entity\":\"Kostenstellen\",\"Type\":0},{\"Name\":\"h\",\"Entity\":\"Hotel_Ist\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Kostenstellen-Ebene1\"},\"Name\":\"Kostenstellen.Kostenstellen-Ebene1\",\"NativeReferenceName\":\"Kostenstellen-Ebene1\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"k\"}},\"Property\":\"Kostenstellen-Ebene2\"},\"Name\":\"Kostenstellen.Kostenstellen-Ebene2\",\"NativeReferenceName\":\"Kostenstellen-Ebene2\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"Betrag\"}},\"Function\":0},\"Name\":\"Sum(Hotel_Ist.Betrag)\",\"NativeReferenceName\":\"Summe von Betrag\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 609.40,
+          "width": 574.98,
+          "x": 65.02,
+          "y": 79.04,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"e723d4e66605715e5754\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1081.1155378486055,\"y\":38.24701195219123,\"z\":4,\"width\":174.6613545816733,\"height\":98.16733067729083}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Gliederung.Berichtsebene1\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"g\",\"Entity\":\"Gliederung\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"g\"}},\"Property\":\"Berichtsebene1\"},\"Name\":\"Gliederung.Berichtsebene1\",\"NativeReferenceName\":\"Berichtsebene1\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 98.17,
+          "width": 174.66,
+          "x": 1081.12,
+          "y": 38.25,
+          "z": 4.00
+        }
+      ],
+      "width": 1280.00
+    },
+    {
+      "config": "{\"visibility\":1}",
+      "displayName": "Seite 2",
+      "displayOption": 1,
+      "filters": "[{\"name\":\"Filtere0d900c5c077c98d9217\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Kostenstellen\"}},\"Property\":\"Kostenstellen-Ebene2\"}},\"type\":\"Categorical\",\"howCreated\":5},{\"name\":\"Filter1019e333d42092a0369e\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Gliederung\"}},\"Property\":\"Berichtsebene1\"}},\"type\":\"Categorical\",\"howCreated\":5}]",
+      "height": 720.00,
+      "name": "ReportSection12904a3d5cad0211ee20",
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"3cbb5f86803d411275dc\",\"layouts\":[{\"id\":0,\"position\":{\"x\":206.53386454183266,\"y\":26.772908366533862,\"z\":0,\"width\":734.3426294820716,\"height\":665.4980079681275,\"tabOrder\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"Hotel_Ist.Buchungsnummer\"},{\"queryRef\":\"Hotel_Ist.Datum\"},{\"queryRef\":\"Sum(Hotel_Ist.Betrag)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"h\",\"Entity\":\"Hotel_Ist\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"Buchungsnummer\"},\"Name\":\"Hotel_Ist.Buchungsnummer\",\"NativeReferenceName\":\"Buchungsnummer\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"Datum\"},\"Name\":\"Hotel_Ist.Datum\",\"NativeReferenceName\":\"Datum\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"h\"}},\"Property\":\"Betrag\"}},\"Function\":0},\"Name\":\"Sum(Hotel_Ist.Betrag)\",\"NativeReferenceName\":\"Summe von Betrag\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 665.50,
+          "width": 734.34,
+          "x": 206.53,
+          "y": 26.77,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"4fdaa6c55ca04dda2c61\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"width\":100,\"height\":40,\"z\":1}}],\"singleVisual\":{\"visualType\":\"actionButton\",\"drillFilterOtherVisuals\":true,\"objects\":{\"icon\":[{\"properties\":{\"shapeType\":{\"expr\":{\"Literal\":{\"Value\":\"'back'\"}}}},\"selector\":{\"id\":\"default\"}}]},\"vcObjects\":{\"visualLink\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"type\":{\"expr\":{\"Literal\":{\"Value\":\"'Back'\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 40.00,
+          "width": 100.00,
+          "x": 0.00,
+          "y": 0.00,
+          "z": 1.00
+        }
+      ],
+      "width": 1280.00
+    }
+  ]
+}

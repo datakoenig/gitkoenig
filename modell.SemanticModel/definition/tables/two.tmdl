@@ -1,0 +1,53 @@
+table two
+	lineageTag: e2552db2-9081-49dc-b4f1-de89e831765e
+	sourceLineageTag: [dbo].[two]
+
+	column English_-_US
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 584b8560-b3c6-4fba-9c8c-87909e1a649a
+		sourceLineageTag: English_-_US
+		summarizeBy: none
+		sourceColumn: English_-_US
+
+		annotation SummarizationSetBy = Automatic
+
+	column German_-_DE
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: d4c2b086-9fa6-4760-875e-d1cccae936e0
+		sourceLineageTag: German_-_DE
+		summarizeBy: none
+		sourceColumn: German_-_DE
+
+		annotation SummarizationSetBy = Automatic
+
+	column Corrections
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: 47be1f9c-f1dc-45a4-add1-7ac14656cdfb
+		sourceLineageTag: Corrections
+		summarizeBy: none
+		sourceColumn: Corrections
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column4
+		dataType: string
+		sourceProviderType: varchar(8000)
+		lineageTag: be379469-4c79-471d-a532-d19c45a44c62
+		sourceLineageTag: Column4
+		summarizeBy: none
+		sourceColumn: Column4
+
+		annotation SummarizationSetBy = Automatic
+
+	partition two = entity
+		mode: directLake
+		source
+			entityName: two
+			schemaName: dbo
+			expressionSource: DatabaseQuery
+
+	annotation PBI_ResultType = Table
+

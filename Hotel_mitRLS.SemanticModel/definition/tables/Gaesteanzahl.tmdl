@@ -1,0 +1,33 @@
+table Gaesteanzahl
+	lineageTag: 07a3b723-540a-4bed-860d-9ea2d0404b19
+
+	column Gästeanzahl
+		dataType: int64
+		formatString: 0
+		lineageTag: 1488c95d-4d0e-4332-8359-14a2cbd6119a
+		summarizeBy: sum
+		sourceColumn: Gästeanzahl
+
+		annotation SummarizationSetBy = Automatic
+
+	column Datum
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b7765e0f-8e5b-4240-ad23-0dd24f19c718
+		summarizeBy: none
+		sourceColumn: Datum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition Gaesteanzahl = m
+		mode: import
+		source =
+				let
+				    Quelle = Sql.Databases("6aiowjgnb6lu5iguqrukqsu6sa-6mi7yii457fuxbvj2h6z5byt5u.datawarehouse.fabric.microsoft.com"),
+				    LH_Hoteldaten = Quelle{[Name="LH_Hoteldaten"]}[Data],
+				    dbo_Gaesteanzahl = LH_Hoteldaten{[Schema="dbo",Item="Gaesteanzahl"]}[Data]
+				in
+				    dbo_Gaesteanzahl
+

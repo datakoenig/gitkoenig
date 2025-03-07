@@ -1,0 +1,7 @@
+role FB
+	modelPermission: read
+
+	tablePermission Kostenstellen = [Kostenstellen-Ebene1] == "F&B"
+
+	annotation PBI_Id = 842724b6ae884af3a1e91740a18af8ba
+

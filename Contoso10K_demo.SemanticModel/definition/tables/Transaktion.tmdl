@@ -1,0 +1,50 @@
+table Transaktion
+	lineageTag: 1099bd2b-7525-4e67-ac45-8f9b4432b545
+
+	column Transaktion
+		lineageTag: 496a848c-1483-485c-a258-1b6bd9f8d60f
+		summarizeBy: none
+		sourceColumn: [Value1]
+		sortByColumn: 'Transaktion Reihenfolge'
+
+		relatedColumnDetails
+			groupByColumn: 'Transaktion Felder'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaktion Felder'
+		isHidden
+		lineageTag: dd0d9286-1ba0-4963-8076-549383bb1714
+		summarizeBy: none
+		sourceColumn: [Value2]
+		sortByColumn: 'Transaktion Reihenfolge'
+
+		extendedProperty ParameterMetadata =
+				{
+				  "version": 3,
+				  "kind": 2
+				}
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Transaktion Reihenfolge'
+		isHidden
+		formatString: 0
+		lineageTag: 59b4dd6c-9b95-4f42-9095-0c7c94c65bcb
+		summarizeBy: sum
+		sourceColumn: [Value3]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Transaktion = calculated
+		mode: import
+		source =
+				{
+				    ("Delivery Sum", NAMEOF('Data OrderRows'[Delivery Sum]), 0),
+				    ("Order Sum", NAMEOF('Data OrderRows'[Order Sum]), 1),
+				    ("Delivery YTD", NAMEOF('Data OrderRows'[Delivery YTD]), 2),
+				    ("Order YTD", NAMEOF('Data OrderRows'[Order YTD]), 3)
+				}
+
+	annotation PBI_Id = 5bfb0197e8214e26a3ee8f4202a10fc7
+

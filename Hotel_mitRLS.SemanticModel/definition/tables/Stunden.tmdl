@@ -1,0 +1,41 @@
+table Stunden
+	lineageTag: 864589be-a360-419d-b3ca-4fa3b8e11b79
+
+	column Stunden
+		dataType: string
+		lineageTag: 64dfc83c-43fd-475c-9314-1caea597f7dc
+		summarizeBy: none
+		sourceColumn: Stunden
+
+		annotation SummarizationSetBy = Automatic
+
+	column StundeSort
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f101734-49de-4fb3-aa21-962609217f45
+		summarizeBy: sum
+		sourceColumn: StundeSort
+
+		annotation SummarizationSetBy = Automatic
+
+	column StundeNum
+		dataType: int64
+		formatString: 0
+		lineageTag: b2edd2e3-53be-4b10-b408-251506aff187
+		summarizeBy: sum
+		sourceColumn: StundeNum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Stunden = m
+		mode: import
+		source =
+				let
+				    Quelle = Sql.Databases("6aiowjgnb6lu5iguqrukqsu6sa-6mi7yii457fuxbvj2h6z5byt5u.datawarehouse.fabric.microsoft.com"),
+				    LH_Hoteldaten = Quelle{[Name="LH_Hoteldaten"]}[Data],
+				    dbo_Stunden = LH_Hoteldaten{[Schema="dbo",Item="Stunden"]}[Data]
+				in
+				    dbo_Stunden
+
+	annotation PBI_ResultType = Table
+

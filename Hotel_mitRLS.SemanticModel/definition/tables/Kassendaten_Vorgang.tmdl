@@ -1,0 +1,93 @@
+table Kassendaten_Vorgang
+	lineageTag: 619881f8-07e2-433d-9093-942597e86fdf
+
+	column Vorgang
+		dataType: int64
+		formatString: 0
+		lineageTag: 8a60c995-2c53-43e4-9d9f-d2b5b5fd1c19
+		summarizeBy: sum
+		sourceColumn: Vorgang
+
+		annotation SummarizationSetBy = Automatic
+
+	column Belegungsdauer
+		dataType: string
+		lineageTag: e94c4ded-2656-4485-a947-5f963baaa27d
+		summarizeBy: none
+		sourceColumn: Belegungsdauer
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tag
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9a0b1d7c-35a1-42fc-80fd-a2c8c6a91d11
+		summarizeBy: none
+		sourceColumn: Tag
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Menge
+		dataType: int64
+		formatString: 0
+		lineageTag: 585f62f3-f60a-4ee0-86d7-904b68883cf2
+		summarizeBy: sum
+		sourceColumn: Menge
+
+		annotation SummarizationSetBy = Automatic
+
+	column Summe
+		dataType: int64
+		formatString: 0
+		lineageTag: 6cfb9e9b-e5dd-4090-86db-c5267488d57d
+		summarizeBy: sum
+		sourceColumn: Summe
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bediener
+		dataType: string
+		lineageTag: cf507eb5-330a-4914-a5a8-44844e192680
+		summarizeBy: none
+		sourceColumn: Bediener
+
+		annotation SummarizationSetBy = Automatic
+
+	column Tisch
+		dataType: int64
+		formatString: 0
+		lineageTag: ac85ccf0-8c4a-4f72-9d76-96b0152a8e7f
+		summarizeBy: sum
+		sourceColumn: Tisch
+
+		annotation SummarizationSetBy = Automatic
+
+	column Bereich
+		dataType: string
+		lineageTag: daed4a6a-e939-40e2-a4bc-9e21c30b3936
+		summarizeBy: none
+		sourceColumn: Bereich
+
+		annotation SummarizationSetBy = Automatic
+
+	column Stunde
+		dataType: int64
+		formatString: 0
+		lineageTag: ea39d651-9fe9-4be2-a842-e16f64adb71a
+		summarizeBy: sum
+		sourceColumn: Stunde
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Kassendaten_Vorgang = m
+		mode: import
+		source =
+				let
+				    Quelle = Sql.Databases("6aiowjgnb6lu5iguqrukqsu6sa-6mi7yii457fuxbvj2h6z5byt5u.datawarehouse.fabric.microsoft.com"),
+				    LH_Hoteldaten = Quelle{[Name="LH_Hoteldaten"]}[Data],
+				    dbo_Kassendaten_Vorgang = LH_Hoteldaten{[Schema="dbo",Item="Kassendaten_Vorgang"]}[Data]
+				in
+				    dbo_Kassendaten_Vorgang
+

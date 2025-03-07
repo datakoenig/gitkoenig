@@ -1,0 +1,72 @@
+table Produkte
+	lineageTag: b2d0bc49-39dc-4bd2-b614-6833a2c21a6a
+
+	column ArtikelNR
+		dataType: int64
+		formatString: 0
+		lineageTag: 273265ca-3438-4e25-9e5b-0b9974406c3b
+		summarizeBy: sum
+		sourceColumn: ArtikelNR
+
+		annotation SummarizationSetBy = Automatic
+
+	column Artikel
+		dataType: string
+		lineageTag: 9fe60595-fe4f-48ed-bdf7-a26142c7cc92
+		summarizeBy: none
+		sourceColumn: Artikel
+
+		annotation SummarizationSetBy = Automatic
+
+	column Warengruppe
+		dataType: string
+		lineageTag: d3e3b279-989f-44d4-8163-191452764f5f
+		summarizeBy: none
+		sourceColumn: Warengruppe
+
+		annotation SummarizationSetBy = Automatic
+
+	column Obergruppe_1
+		dataType: string
+		lineageTag: 4bb85a58-6130-4d48-82b0-3f4b4d115320
+		summarizeBy: none
+		sourceColumn: Obergruppe_1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Hauptgruppe
+		dataType: string
+		lineageTag: 0135aa85-0160-4206-be69-cf8372aaf1ac
+		summarizeBy: none
+		sourceColumn: Hauptgruppe
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kassenumsatz
+		dataType: string
+		lineageTag: c4d9536b-9562-42ef-bafd-b29e456249e1
+		summarizeBy: none
+		sourceColumn: Kassenumsatz
+
+		annotation SummarizationSetBy = Automatic
+
+	column Obergruppe
+		dataType: string
+		lineageTag: ef2ce115-f51a-4f42-8383-ec419ccfd1c6
+		summarizeBy: none
+		sourceColumn: Obergruppe
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Produkte = m
+		mode: import
+		source =
+				let
+				    Quelle = Sql.Databases("6aiowjgnb6lu5iguqrukqsu6sa-6mi7yii457fuxbvj2h6z5byt5u.datawarehouse.fabric.microsoft.com"),
+				    LH_Hoteldaten = Quelle{[Name="LH_Hoteldaten"]}[Data],
+				    dbo_Produkte = LH_Hoteldaten{[Schema="dbo",Item="Produkte"]}[Data]
+				in
+				    dbo_Produkte
+
+	annotation PBI_ResultType = Table
+

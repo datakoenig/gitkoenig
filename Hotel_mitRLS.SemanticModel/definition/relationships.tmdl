@@ -1,0 +1,12 @@
+relationship 7773d4dd-14f4-4429-8423-ac300ad21dc8
+	fromColumn: Hotel_Ist.Sachkonto
+	toColumn: Gliederung.Sachkonto
+
+relationship b50d7a75-6e12-4743-b577-b1df5b95c3d5
+	fromColumn: Hotel_Ist.Kostenstellen
+	toColumn: Kostenstellen.Kostenstellen
+
+relationship b8bc3f4d-a8e5-4c43-8541-372ed6e0b6d4
+	fromColumn: Hotel_Ist.Datum
+	toColumn: Kalender.Datum
+

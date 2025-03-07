@@ -1,0 +1,155 @@
+table Gliederung
+	lineageTag: 1aa02584-82e3-49ec-b24d-5755d3248a6b
+
+	column Sachkonto
+		dataType: int64
+		formatString: 0
+		lineageTag: 74b9046a-f09b-4a52-9cad-3eb1845bfc74
+		summarizeBy: none
+		sourceColumn: Sachkonto
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sachkontoname
+		dataType: string
+		lineageTag: 0f3b12aa-f95d-4f54-8d8a-db6e271d39e1
+		summarizeBy: none
+		sourceColumn: Sachkontoname
+
+		annotation SummarizationSetBy = Automatic
+
+	column Sachkontonummer-und-Name
+		dataType: string
+		lineageTag: fed61d85-d5ad-4578-8ab0-0a194d179f93
+		summarizeBy: none
+		sourceColumn: Sachkontonummer-und-Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column Berichtsebene1
+		dataType: string
+		lineageTag: 4d99307c-54fa-48f1-8c17-4a01f1ee14f9
+		summarizeBy: none
+		sourceColumn: Berichtsebene1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Berichtsebene2
+		dataType: string
+		lineageTag: c3eea075-f37e-464e-84e4-c9ecb2606c98
+		summarizeBy: none
+		sourceColumn: Berichtsebene2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Berichtsebene3
+		dataType: string
+		lineageTag: fcb77eca-bdc0-4340-82e2-5e7bff785e54
+		summarizeBy: none
+		sourceColumn: Berichtsebene3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Berichtsebene4
+		dataType: string
+		lineageTag: 2d413a96-e61e-4e4f-8213-a0d282593fec
+		summarizeBy: none
+		sourceColumn: Berichtsebene4
+
+		annotation SummarizationSetBy = Automatic
+
+	column Berichtsebene5
+		dataType: string
+		lineageTag: 3d0adea8-ae4b-412e-8804-7ecc2f1e58e9
+		summarizeBy: none
+		sourceColumn: Berichtsebene5
+
+		annotation SummarizationSetBy = Automatic
+
+	column Berichtsebene6
+		dataType: string
+		lineageTag: 25624177-878c-41a6-afcd-e7f10d2d2f0a
+		summarizeBy: none
+		sourceColumn: Berichtsebene6
+
+		annotation SummarizationSetBy = Automatic
+
+	column E7Nr
+		dataType: int64
+		formatString: 0
+		lineageTag: 313dbe08-edbf-4958-9352-1ea024580098
+		summarizeBy: none
+		sourceColumn: E7Nr
+
+		annotation SummarizationSetBy = Automatic
+
+	column Berichtsebene7
+		dataType: string
+		lineageTag: 880ab265-4b72-4425-a1f0-e1a9180a6c5c
+		summarizeBy: none
+		sourceColumn: Berichtsebene7
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kostenstellen-Ebene1
+		dataType: string
+		lineageTag: 7c0fea03-b2be-45b7-a603-63c3780ee2f8
+		summarizeBy: none
+		sourceColumn: Kostenstellen-Ebene1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kostenstellen-Ebene2
+		dataType: string
+		lineageTag: cb01bef6-1acb-4460-ab2f-de19d57e5874
+		summarizeBy: none
+		sourceColumn: Kostenstellen-Ebene2
+
+		annotation SummarizationSetBy = Automatic
+
+	column E6Nr
+		dataType: int64
+		formatString: 0
+		lineageTag: 1b269874-2a76-4375-bc47-738a046f0db7
+		summarizeBy: none
+		sourceColumn: E6Nr
+
+		annotation SummarizationSetBy = Automatic
+
+	column E5Nr
+		dataType: int64
+		formatString: 0
+		lineageTag: 56396523-94c3-43c4-a5ef-d58e3942efc1
+		summarizeBy: none
+		sourceColumn: E5Nr
+
+		annotation SummarizationSetBy = Automatic
+
+	column E4Nr
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b277e94-9182-4313-a119-f184367b326c
+		summarizeBy: none
+		sourceColumn: E4Nr
+
+		annotation SummarizationSetBy = Automatic
+
+	column E3Nr
+		dataType: int64
+		formatString: 0
+		lineageTag: d5be58a6-4ba6-4932-bb7a-b9130fa6cac3
+		summarizeBy: none
+		sourceColumn: E3Nr
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Gliederung = m
+		mode: import
+		source =
+				let
+				    Quelle = Sql.Databases("6aiowjgnb6lu5iguqrukqsu6sa-6mi7yii457fuxbvj2h6z5byt5u.datawarehouse.fabric.microsoft.com"),
+				    LH_Hoteldaten = Quelle{[Name="LH_Hoteldaten"]}[Data],
+				    dbo_Gliederung = LH_Hoteldaten{[Schema="dbo",Item="Gliederung"]}[Data]
+				in
+				    dbo_Gliederung
+

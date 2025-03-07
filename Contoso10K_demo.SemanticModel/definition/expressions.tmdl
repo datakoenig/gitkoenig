@@ -1,0 +1,13 @@
+expression 'Data Orders' =
+		let
+		    Quelle = Sql.Database("akdbserver.database.windows.net", "Contoso10K"),
+		    Data_Orders = Quelle{[Schema="Data",Item="Orders"]}[Data],
+		    #"Entfernte Spalten" = Table.RemoveColumns(Data_Orders,{"Data.Customer", "Data.Date", "Data.OrderRows", "Data.Store"})
+		in
+		    #"Entfernte Spalten"
+	lineageTag: 73607c24-9892-4a8a-b7c1-1c485f79b6e3
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
